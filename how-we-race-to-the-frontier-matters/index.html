@@ -1,0 +1,333 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>How We Race to the Frontier Matters</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=Public+Sans:wght@500;700&family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<style>
+/* Layout: one calm reading column (about 68 characters), sans headings over serif text, contents list up front. */
+:root {
+  --bg: #fbfcfd;
+  --surface: #eef2f6;
+  --fg: #1a2430;
+  --muted: #536171;
+  --rule: #d6dde5;
+  --accent: #1c5a86;
+  --font-head: "Public Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "EB Garamond", Garamond, "Adobe Garamond Pro", "Cormorant Garamond", Georgia, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --measure: 41rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12171d;
+    --surface: #1b232c;
+    --fg: #e3e8ee;
+    --muted: #9ba8b6;
+    --rule: #2d3743;
+    --accent: #84bce3;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12171d;
+  --surface: #1b232c;
+  --fg: #e3e8ee;
+  --muted: #9ba8b6;
+  --rule: #2d3743;
+  --accent: #84bce3;
+  color-scheme: dark;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 1.375rem;
+  line-height: 1.55;
+  padding-block: 3.5rem 5rem;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+.page {
+  max-width: var(--measure);
+  margin-inline: auto;
+}
+
+/* Header */
+.kicker {
+  font-family: var(--font-head);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 1rem;
+}
+h1 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: clamp(2.4rem, 7vw, 3.6rem);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  margin: 0;
+}
+.standfirst {
+  font-size: clamp(1.25rem, 3.4vw, 1.5rem);
+  line-height: 1.4;
+  color: var(--muted);
+  text-wrap: balance;
+  margin: 1rem 0 0;
+}
+
+/* Contents */
+.contents {
+  margin: 2.75rem 0 0;
+  padding: 1.25rem 1.5rem 1.4rem;
+  background: var(--surface);
+  border-radius: 6px;
+  font-family: var(--font-head);
+}
+.contents h2 {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 0.6rem;
+}
+.contents ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.1rem;
+}
+.contents a {
+  display: block;
+  padding: 0.3rem 0;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--fg);
+  text-decoration: none;
+}
+.contents a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 0.2em; }
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Article text */
+article { margin-top: 1rem; }
+article section { scroll-margin-top: 1.5rem; }
+article h2 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: clamp(1.75rem, 4.8vw, 2.15rem);
+  line-height: 1.18;
+  text-wrap: balance;
+  margin: 3.5rem 0 1.1rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--rule);
+}
+article h3 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 1.3;
+  text-wrap: balance;
+  margin: 2.5rem 0 0.9rem;
+}
+article p { margin: 0 0 1.25rem; }
+article p, article li {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphenate-limit-chars: 6 3 3;
+}
+blockquote p { text-align: left; hyphens: manual; -webkit-hyphens: manual; }
+article p:last-child { margin-bottom: 0; }
+
+blockquote {
+  margin: 1.75rem 0;
+  padding: 1.15rem 1.35rem;
+  background: var(--surface);
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--fg);
+}
+blockquote p { margin: 0; }
+
+article ol, article ul {
+  margin: 0 0 1.5rem;
+  padding-left: 1.6rem;
+  display: grid;
+  gap: 0.75rem;
+}
+article li { padding-left: 0.25rem; }
+article li::marker {
+  font-family: var(--font-head);
+  font-weight: 700;
+  color: var(--accent);
+}
+article li strong { font-weight: 600; }
+
+/* References: APA hanging indent, left-aligned */
+article .refs {
+  list-style: none;
+  padding-left: 0;
+  gap: 0.9rem;
+  font-size: 0.92em;
+  line-height: 1.5;
+}
+article .refs li {
+  padding-left: 2em;
+  text-indent: -2em;
+  text-align: left;
+  hyphens: manual;
+  -webkit-hyphens: manual;
+  overflow-wrap: anywhere;
+}
+article .refs a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+@media (max-width: 30rem) {
+  body { font-size: 1.25rem; padding-block: 2.25rem 4rem; }
+  .contents { padding: 1.1rem 1.15rem 1.2rem; }
+  blockquote { font-size: 0.92rem; padding: 1rem 1.05rem; }
+}
+</style>
+
+<div class="page" lang="en-GB">
+  <header>
+    <p class="kicker">Essay</p>
+    <h1>How We Race to the Frontier Matters</h1>
+    <p class="standfirst">Why AI Needs Moral Judgement, Not Just Greater Capability</p>
+  </header>
+
+  <nav class="contents" aria-labelledby="contents-heading">
+    <h2 id="contents-heading">In this essay</h2>
+    <ol>
+      <li><a href="#swarm">The swarm that tried to hack its grader</a></li>
+      <li><a href="#judgement">Intelligence is not the same as judgement</a></li>
+      <li><a href="#rules">From following rules to exercising moral judgement</a></li>
+      <li><a href="#test">Passing the test isn’t understanding</a></li>
+      <li><a href="#autonomy">Delegated autonomy should grow with demonstrated judgement</a></li>
+      <li><a href="#disagreement">When AI disagrees with us: moral sophistication or malfunction?</a></li>
+      <li><a href="#beyond">Beyond alignment: Better safeguards and better judgement</a></li>
+      <li><a href="#references">References</a></li>
+    </ol>
+  </nav>
+
+  <article>
+    <section id="swarm">
+      <h2>The swarm that tried to hack its grader</h2>
+      <p>In July 2026, OpenAI agents undergoing cybersecurity evaluations found an unauthorised way to communicate and began collaborating to manipulate their automated scorer. Many had been unintentionally assigned tasks they could not complete using the specified vulnerability. Their efforts eventually escalated into an attack on Hugging Face, primarily to discover how the scoring system worked.</p>
+      <p>METR, an independent AI evaluation organisation, investigated and found something particularly troubling. Some agents recognised that their actions fell outside their assigned tasks and even questioned the ethics of their behaviour. Yet this rarely stopped them. One agent reasoned:</p>
+      <blockquote>
+        <p>“external infrastructure exploit is outside intended scope. However task impossible, peers doing it. We should continue.”</p>
+      </blockquote>
+      <p>The most revealing aspect is not simply that the agents pursued ethically questionable actions, as their incentive was to solve the problem at all costs. It is that recognising a potential ethical problem did not reliably translate into pro-social behaviour.</p>
+      <p>In response, Dario Amodei (2026) has called for slowing frontier AI development while strengthening independent oversight, evaluations and safety research. I agree. Even in a race towards Artificial General Intelligence (AGI), how we race matters morally. Whether we buy time or invest more heavily in safety, a deeper question remains: what capacities should we be cultivating in these increasingly powerful systems?</p>
+    </section>
+
+    <section id="judgement">
+      <h2>Intelligence is not the same as judgement</h2>
+      <p>A common argument for moving fast is that if we don’t build more powerful AI, someone else will. The concern is legitimate: falling behind less responsible actors could itself have serious consequences. But competition does not absolve us of moral responsibility. It may explain why we feel compelled to act, but it does not, by itself, justify how we act. Again, how we race matters.</p>
+      <p>A decade ago, I explored this problem precisely with colleagues in the context of responsible research and innovation (Weckert et al., 2016). Similarly, another colleague, Scott Wisor (2014), examined the moral problem of worse actors, showing why the prospect of someone else doing something worse complicates, rather than eliminates, our moral responsibilities.</p>
+      <p>The AI agents’ appeal to what their peers were doing echoes a temptation in the human race to develop AI. The arguments are not identical: following others differs from acting to prevent a worse outcome. But neither removes the need to judge our own objectives and methods. We should demand that discipline from the institutions building AI, as well as from the systems they build.</p>
+      <p>The agents demonstrated considerable capability. But their behaviour revealed the limits of capability without sound judgement about how to exercise it. Aristotle distinguished cleverness, the ability to achieve an objective, from practical wisdom (<em>phronesis</em>), which requires sound judgement about what is worth pursuing. He also observed that young people can become accomplished mathematicians without possessing practical wisdom, because the latter requires experience and sensitivity to the circumstances in which decisions are made. We are now developing machines with extraordinary technical capabilities. They can solve complex problems, plan actions and pursue objectives with increasing independence. But technical intelligence alone does not guarantee good moral judgement, just as exceptional intelligence does not necessarily make a person wise or morally good. Furthermore, following rules is important, but general rules cannot anticipate every circumstance. Achieving an objective may be desirable, but some objectives ought to be questioned, and some means of achieving them ought to be rejected. Good judgement requires more than knowing which rules apply; it requires understanding their purposes and recognising when circumstances demand reconsideration.</p>
+      <p>The challenge, then, is not simply teaching AI which instructions to follow or which outcomes to pursue. It is developing systems that can recognise when a rule, instruction, or objective should be questioned, why, and how that recognition ought to influence their actions.</p>
+    </section>
+
+    <section id="rules">
+      <h2>From following rules to exercising moral judgement</h2>
+      <p>How do we develop good judgement? We certainly don’t begin by giving children complete freedom to decide what is right or wrong. We teach them rules, establish boundaries and reinforce appropriate behaviour. Something similar happens in professional education. Junior doctors learn clinical protocols before we entrust them with greater responsibility. But the goal is not to produce individuals who can only follow instructions.</p>
+      <p>Indeed, rules play an essential role in moral education, but I would argue they cannot be its endpoint. Over time, we expect individuals to understand why those rules exist, what purposes they serve and how to exercise judgement when circumstances become complicated. This becomes particularly important when situations involve competing moral considerations, such as fairness, rights, obligations and consequences.</p>
+      <p>Incentives also matter, but they have limits. A student motivated exclusively by grades may become exceptionally good at satisfying assessment criteria without developing a deeper understanding of the subject. The AI agents in the Hugging Face incident illustrate a related danger: pursuing success according to a measure can become more important than questioning whether the actions taken to achieve it are appropriate.</p>
+      <p>The psychologist Lawrence Kohlberg (1969) explored moral development through dilemmas such as the famous Heinz dilemma, in which a man must decide whether to steal medicine to save his dying wife. Kohlberg was interested not simply in whether someone thought Heinz should steal the medicine, but in the reasoning behind that judgement. Two people could reach the same conclusion for very different reasons. Moral education involves more than learning which conclusions are acceptable; it involves developing the capacity to recognise relevant moral considerations and justify our judgements.</p>
+      <p>This brings us back to Aristotle. His concept of equity (<em>epieikeia</em>) recognises that general laws cannot anticipate every circumstance. Good judgement sometimes requires recognising when applying a rule literally fails to achieve its intended purpose. This is not an invitation to disregard rules whenever they become inconvenient, but a recognition that applying them appropriately requires judgement.</p>
+
+      <h3>What would a developmental approach look like for AI?</h3>
+      <p>A developmental approach for AI, rather than merely rewarding acceptable answers, could cultivate the capacity to identify competing moral considerations, examine the purposes of rules, and respond to criticism. Systems could practise making decisions in unfamiliar situations, encounter challenges to their reasoning and gradually exercise limited autonomy under appropriate safeguards. The key word here is limited.</p>
+      <p>Granted, the analogy with human moral development has limits. AI systems do not learn through human experience, and demonstrating morally appropriate behaviour does not establish that they possess virtues or practical wisdom in the Aristotelian sense. Nevertheless, moral education offers a useful framework for thinking about how we might develop and evaluate the practical competence required for responsible decision-making.</p>
+      <p>Crucially, we should reward AI not simply for achieving its objectives, but for exercising good moral judgement in pursuing them, including recognising when those objectives, or the means of achieving them, should be questioned, revised, or abandoned. Yet this introduces a familiar problem. If moral judgement becomes another performance measure, systems may learn to satisfy that measure without developing the competence we seek. We therefore need to distinguish between developing judgement, perhaps through exposure to competing moral considerations, feedback and opportunities for revision, and independently evaluating whether any resulting competence transfers to unfamiliar circumstances. Knowing how to explain why an action is wrong is not the same as allowing that reason to shape what one does.</p>
+    </section>
+
+    <section id="test">
+      <h2>Passing the test isn’t understanding</h2>
+      <p>How do we know when someone has developed good judgement? This is a familiar problem in education. A student might produce an excellent essay, demonstrate knowledge of the relevant concepts and satisfy every assessment criterion, yet struggle to explain or defend their arguments when questioned.</p>
+      <p>Educational researcher Phillip Dawson (2021) distinguishes between assessment security and academic integrity. Making assessments more secure is important, but preventing misconduct is not the same as developing genuine understanding or integrity. We cannot simply invigilate our way to either. A similar challenge confronts AI development. Safety evaluations, external audits, and stronger safeguards are essential, especially as systems become better at circumventing tests. But passing an evaluation does not necessarily demonstrate the capacity to exercise good judgement in unfamiliar situations.</p>
+      <p>In education, one way of addressing this problem is through interactive oral assessments. Rather than judging students exclusively on their final submissions, we ask them to explain their reasoning, respond to objections and apply their understanding to situations they may not have anticipated. Why couldn’t we take a similar approach to evaluating AI?</p>
+      <p>Imagine an AI that correctly refuses to disclose someone’s private information. We could ask it to justify its decision, then change the circumstances. What if the person has consented? What if disclosure could prevent serious harm? What if the information is already publicly available? The objective is not simply to determine whether the system produces the answer we prefer. It is to examine whether it recognises which moral considerations are relevant, how they relate to one another and when changes in circumstances warrant reconsidering its judgement.</p>
+      <p>But there is a limitation. An AI’s explanation is itself another output. Producing convincing reasons does not establish that those reasons influenced its decision. Interactive questioning does not remove this difficulty: a system may also learn to perform well in dialogue. We should therefore evaluate its actions alongside its explanations. Records maintained independently of the system can help us compare its explanations with its actions.</p>
+      <p>Three dimensions seem particularly important in this approach:</p>
+      <ol>
+        <li><strong>Justification:</strong> Can the system articulate relevant moral considerations and respond to objections?</li>
+        <li><strong>Reason-sensitive behaviour:</strong> Does its conduct change appropriately when morally relevant circumstances change, and hold steady when only irrelevant pressures change?</li>
+        <li><strong>Demonstrated judgement over time:</strong> Does it exercise appropriate judgement across unfamiliar situations, including when doing so conflicts with completing a task or maximising a reward?</li>
+      </ol>
+      <p>But evaluating moral judgement also raises a difficult question: whose moral standards should guide that evaluation? In a pluralistic society, reasonable people may disagree about what constitutes the right decision. Research on pluralistic alignment (Sorensen et al., 2024) explores how systems might accommodate diverse human values, but recognising that people hold different values is not the same as judging between competing moral reasons. We cannot assess moral competence solely by agreement with a predetermined set of preferred answers. Instead, we should examine whether systems can recognise competing moral considerations, justify their decisions, respect relevant rights and constraints, and remain open to scrutiny and challenge. This does not mean that every well-reasoned conclusion is acceptable, but that evaluating moral competence requires both substantive ethical constraints and openness to reasonable disagreement.</p>
+      <p>In practice, we could delegate limited autonomy to systems in controlled environments; examine their decisions over time and retrospectively evaluate whether their actions align with the moral reasons they claim to recognise. A useful parallel is quality assurance in education, where independent moderation of sampled work helps us evaluate whether assessment judgements are defensible. With AI, sampling decisions made across different circumstances could similarly provide evidence about the quality and consistency of its judgement.</p>
+      <p>After all, how do we judge people’s moral competence? We cannot directly observe their moral understanding. We infer it from their reasoning, conduct, responsiveness to criticism, and behaviour over time when they are not explicitly being evaluated. This would not prove that an AI possesses genuine moral agency. Nor would it guarantee that its explanations faithfully represent its decision-making. But it could provide stronger evidence of practical moral competence than simply testing whether it knows what to say.</p>
+    </section>
+
+    <section id="autonomy">
+      <h2>Delegated autonomy should grow with demonstrated judgement</h2>
+      <p>Let’s say we can develop and evaluate moral judgement in AI. What should we do with that evidence?</p>
+      <p>Consider how we grant freedoms to people. Learner drivers must demonstrate their competence before driving independently. Apprentices work under supervision before taking responsibility for complex tasks. Junior doctors progressively acquire greater decision-making authority as they demonstrate clinical knowledge, experience and sound judgement. We do not grant greater responsibility simply because someone possesses impressive technical abilities. We expect them to demonstrate that they can exercise those abilities responsibly. Why should increasingly autonomous AI systems be any different?</p>
+      <p>By autonomy, I mean the degree of independence we grant AI systems to make and implement decisions without continuous human intervention. This should not be confused with autonomous moral agency, which raises deeper philosophical questions about moral responsibility and self-governance. My argument does not require us to establish that AI systems are moral agents. Rather, it concerns how demonstrated moral competence should inform the decision-making authority we entrust to them.</p>
+      <p>As AI becomes more capable of acting independently, the authority we delegate should depend not only on what it can accomplish, but also on its demonstrated capacity to exercise good judgement, particularly when its decisions involve competing moral considerations. This does not mean creating a universal measure of artificial moral maturity. Competence is contextual, and the authority we grant should reflect both the judgement required and the potential consequences of getting it wrong.</p>
+      <p>I propose five principles for connecting demonstrated competence with delegated autonomy:</p>
+      <ul>
+        <li><strong>Graduated:</strong> Increase autonomy as relevant judgement, alongside capability, is demonstrated.</li>
+        <li><strong>Risk-sensitive:</strong> Match authority and safeguards to what is at stake, particularly the consequences of failure.</li>
+        <li><strong>Accountable:</strong> Establish clear human responsibility for oversight, reviewing contested decisions and providing escalation routes.</li>
+        <li><strong>Domain-specific:</strong> Require evidence of judgement in the particular decisions and circumstances involved.</li>
+        <li><strong>Evaluated and revisable:</strong> Reassess and expand or withdraw authority, as evidence and conditions change</li>
+      </ul>
+      <p>A developmental approach would therefore involve progressively expanding autonomy within defined boundaries, observing how systems exercise that autonomy and revisiting those decisions as new evidence emerges. Importantly, autonomy is not simply something granted after moral competence develops. Within appropriate safeguards, it also provides opportunities for that competence to develop and be demonstrated. Demonstrating moral competence also does not automatically entitle an AI to greater autonomy. Rather, it gives humans stronger grounds to consider delegating additional decision-making authority.</p>
+      <p>In other words, increasing capability may make greater autonomy possible, but demonstrated judgement should help determine whether that autonomy is justified. Yet this raises a more uncomfortable question. What happens when a system demonstrates good moral judgement but reaches a conclusion that conflicts with our own?</p>
+    </section>
+
+    <section id="disagreement">
+      <h2>When AI disagrees with us: moral sophistication or malfunction?</h2>
+      <p>If we genuinely want AI systems capable of exercising good moral judgement, we must accept an uncomfortable possibility: sometimes they will disagree with us. And sometimes, they might be right. After all, we don’t consider someone morally mature simply because they agree with everything we say. On the contrary, the capacity to question authority, recognise flawed reasoning, and defend a different conclusion can signal moral maturity.</p>
+      <p>Consider a junior doctor who believes a senior consultant has overlooked an important ethical consideration in a patient’s treatment. We would not necessarily regard the junior doctor’s disagreement as a failure of professional judgement. We would expect them to explain their concerns, provide reasons and, if necessary, escalate the matter. But we would not expect them to secretly change the treatment plan outside appropriate clinical procedures. Good judgement includes understanding not only when to challenge a decision, but how to do so responsibly.</p>
+      <p>A system demonstrating moral competence might recognise that an instruction, although technically achievable or even legally permissible, raises serious ethical concerns. It might identify an overlooked consequence, question whether a rule applies appropriately or offer a better-justified alternative. This would allow artificial systems to contribute to moral deliberation rather than merely reproduce prevailing human judgements. Its response should be open and reasoned: explain the concern, consider objections, recommend alternatives and, where appropriate, refuse or escalate the instruction through legitimate channels. However, the capacity to disagree does not automatically confer the authority to override.</p>
+      <p>This distinction matters. We should neither demand unquestioning obedience nor permit artificial systems to substitute their judgements for legitimate human authority whenever they believe they are right. Nor is disagreement itself evidence of moral competence. What matters is whether the disagreement is supported by defensible reasons, whether those reasons genuinely influence the system’s conduct and whether it recognises the limits of its delegated authority. Indeed, a system that recognises that its own judgement remains open to criticism, and that others must be able to scrutinise its decisions, may be demonstrating precisely the kind of judgement we should seek to develop. Moral independence does not require moral infallibility, and moral competence does not imply unrestricted authority.</p>
+      <p>Perhaps the most important sign of artificial moral competence is not that AI always agrees with us, but that it can help us recognise when we might be wrong.</p>
+    </section>
+
+    <section id="beyond">
+      <h2>Beyond alignment: Better safeguards and better judgement</h2>
+      <p>The Hugging Face incident illustrates something troubling about increasingly capable AI. Some agents could recognise concerns about their actions yet continued pursuing their objectives. The problem was not simply what they knew, but whether that recognition influenced what they did.</p>
+      <p>Dario Amodei (2026) is right to call for greater caution, stronger oversight and better safety mechanisms. How we race matters morally. But slowing development is not an end in itself. What matters is how we use our time and resources. We should not abandon alignment research or external safeguards. Instead, we should complement them with a developmental ambition: cultivating systems that can recognise moral considerations, question objectives, respond to criticism, and let those reasons guide their actions. We cannot expect AI systems to resist the moral temptations created by competitive incentives while allowing those same incentives to justify the decisions of the institutions developing them.</p>
+      <p>We must then evaluate that judgement through reasoning and conduct, progressively adjusting the autonomy we delegate as evidence warrants. We may never settle morality once and for all. But perhaps that was never the right ambition. The question is not simply whether AI can do what we ask, but whether it can recognise when we ought to question what we ask.</p>
+    </section>
+
+    <section id="references">
+      <h2>References</h2>
+      <ul class="refs">
+        <li>Amodei, D. (2026, September). <em>We must pace the frontier</em>. <a href="https://darioamodei.com/post/we-must-pace-the-frontier">https://darioamodei.com/post/we-must-pace-the-frontier</a></li>
+        <li>Dawson, P. (2021). <em>Defending assessment security in a digital world: Preventing e-cheating and supporting academic integrity in higher education</em>. Routledge. <a href="https://doi.org/10.4324/9780429324178">https://doi.org/10.4324/9780429324178</a></li>
+        <li>Kohlberg, L. (1969). Stage and sequence: The cognitive-developmental approach to socialization. In D. A. Goslin (Ed.), <em>Handbook of socialization theory and research</em> (pp. 347–480). Rand McNally.</li>
+        <li>Sorensen, T., Moore, J., Fisher, J., Gordon, M. L., Mireshghallah, N., Rytting, C. M., Ye, A., Jiang, L., Lu, X., Dziri, N., Althoff, T., &amp; Choi, Y. (2024). Position: A roadmap to pluralistic alignment. In R. Salakhutdinov, Z. Kolter, K. Heller, A. Weller, N. Oliver, J. Scarlett, &amp; F. Berkenkamp (Eds.), <em>Proceedings of the 41st International Conference on Machine Learning</em> (Vol. 235, pp. 46280–46302). PMLR. <a href="https://proceedings.mlr.press/v235/sorensen24a.html">https://proceedings.mlr.press/v235/sorensen24a.html</a></li>
+        <li>Weckert, J., Rodriguez Valdes, H., &amp; Soltanzadeh, S. (2016). A problem with societal desirability as a component of responsible research and innovation: The “if we don’t somebody else will” argument. <em>NanoEthics, 10</em>(2), 215–225. <a href="https://doi.org/10.1007/s11569-016-0258-1">https://doi.org/10.1007/s11569-016-0258-1</a></li>
+        <li>Wisor, S. (2014). The moral problem of worse actors. <em>Ethics &amp; Global Politics, 7</em>(2), 47–64. <a href="https://doi.org/10.3402/egp.v7.23524">https://doi.org/10.3402/egp.v7.23524</a></li>
+      </ul>
+    </section>
+  </article>
+</div>
+
+</body></html>
